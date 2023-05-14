@@ -7,10 +7,13 @@ import org.springframework.ui.Model;
 
 @Controller
 public class HelloController {
-    @RequestMapping("/")
-    public String index(Model model) {
-        model.addAttribute("msg",
-                "これはcontrollerに用意したメッセージです");
+    @RequestMapping("/{num}")
+    public String index(@PathVariable int num, Model model) {
+        int res = 0;
+        for(int i = 1;i <= num;i++){
+            res += i;
+        }
+        model.addAttribute("msg", "Total:" + res);
         return "index";
     }
 }
