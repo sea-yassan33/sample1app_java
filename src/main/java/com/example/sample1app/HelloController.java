@@ -10,20 +10,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HelloController {
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    private boolean flag = false;
+
+    @RequestMapping("/")
     public ModelAndView index(ModelAndView mav){
+        flag = !flag;
         mav.setViewName("index");
-        mav.addObject("msg","HelloController/indexのページです。");
+        mav.addObject("flag", flag);
+        mav.addObject("msg","sample is message!");
         return mav;
-    }
-
-    @RequestMapping("/other")
-    public String other(){
-        return "redirect:/";
-    }
-
-    @RequestMapping("/home")
-    public String home(){
-        return "forward:/";
     }
 }
