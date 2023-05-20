@@ -13,9 +13,7 @@ public class HelloController {
     @RequestMapping("/")
     public ModelAndView index(ModelAndView mav){
         mav.setViewName("index");
-        mav.addObject("msg","データを表示します");
-        String[] data = new String[]{"One","Two","Three"};
-        mav.addObject("data",data);
+        mav.addObject("msg","This is the message!");
         return mav;
     }
 }
