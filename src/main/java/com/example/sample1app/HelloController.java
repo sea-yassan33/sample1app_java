@@ -14,9 +14,25 @@ public class HelloController {
     @RequestMapping("/")
     public ModelAndView index(ModelAndView mav){
         mav.setViewName("index");
-        flag = !flag;
-        mav.addObject("flag", flag);
-        mav.addObject("msg", "this is message on display");
+        MyData[] data = new MyData[]{
+                new MyData("Taro",39),
+                new MyData("Hanako",28),
+                new MyData("Sachiko",17)
+        };
+        mav.addObject("data", data);
         return mav;
+    }
+}
+
+class MyData{
+    public String name;
+    public int age;
+    public MyData(String name, int age){
+        this.name = name;
+        this.age = age;
+    }
+
+    public String toString(){
+        return String.format("{Name: %s, age: %s}",name,age);
     }
 }
