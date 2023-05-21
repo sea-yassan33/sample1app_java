@@ -18,18 +18,8 @@ public class HelloController {
     @RequestMapping("/")
     public ModelAndView index(ModelAndView mav){
         mav.setViewName("index");
-        mav.addObject("title","ラムダ式のサンプル");
-        mav.addObject("msg", "ラムダ式を使用したメッセージ");
-
-        Lambda fn = new Lambda(){
-            public void execute (Fragment frag, Writer out)
-                throws IOException{
-                out.write("<div class=\"alert alert-primary\">");
-                frag.execute(out);
-                out.write("</div>");
-            }
-        };
-        mav.addObject("fn",fn);
+        mav.addObject("title", "Groovy templates");
+        mav.addObject("msg", "This is sample message!!");
         return mav;
     }
 }
